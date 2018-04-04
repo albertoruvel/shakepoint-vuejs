@@ -1,0 +1,141 @@
+$primary: #000;
+$accent: #F47621;
+
+.btn-primary {
+    color: white;
+    background-color: $accent !important;
+    border-color: transparent !important;
+}
+.btn-primary:hover{
+    border-color: transparent !important;
+    background-color: $accent !important;
+}
+.btn-primary:focus:active{
+    box-shadow: 0 0 0 0.2rem $accent !important;
+    border-color: transparent !important;
+    background-color: $accent !important;
+}
+.btn-primary:focus{
+    box-shadow: 0 0 0 0.2rem $accent !important;
+    border-color: transparent !important;
+    background-color: $accent !important;
+}
+.btn-primary:active{
+    box-shadow: 0 0 0 0.2rem $accent !important;
+    border-color: transparent !important;
+    background-color: $accent !important;
+}
+.btn-primary:active:hover {
+    box-shadow: 0 0 0 0.2rem $accent !important;
+    border-color: transparent !important;
+    background-color: $accent !important;
+}
+
+.btn-info:hover,
+.btn-info:focus,
+.btn-info:active,
+.btn-info:active:hover {
+    box-shadow: 0 0 0 0.2rem transparent;
+    color:$accent;
+    border-color: transparent !important;
+    background-color: white !important;
+}
+
+.btn-info{
+    color: $accent;
+    background-color: white !important;
+    border-color: transparent;
+}
+
+.collapse.in{
+    display: block;
+}
+.header {
+    background-color: $primary !important;
+    color: white;
+    padding: .5rem 0;
+}
+.header-container {
+    display: flex !important;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.header-container > a {
+    display: flex;
+    align-items: center;
+}
+.logo {
+    width: 130px;
+    height: 60px;
+}
+#main-menu > ul {
+    padding: 0;
+    list-style: none;
+    margin: 1rem 0 0 0;
+}
+#main-menu > ul > li > a {
+    display: block;
+    color: white;
+    padding: .8rem 0;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+#main-menu > ul > li > a:hover {
+    color: $accent;
+}
+#navbar-menu > li {
+    padding: .4rem;
+}
+#main-menu {
+    background: black;
+    flex: 1 1 100%;
+}
+.menu-button {
+    border: 0;
+    font-size: 2rem;
+    margin: 0;
+    padding: 0 .5rem;
+    background: transparent;
+    color: #fff;
+}
+.form-control:focus{
+    border-color: $accent !important;
+    box-shadow: 0 0 0 0.2rem $accent !important;
+}
+
+@media(min-width: 768px) {
+    #main-menu {
+        height: auto !important;
+        display: flex;
+        justify-content: flex-end;
+        flex: 1 1 auto;
+        margin-left: auto;
+    }
+    #main-menu > ul {
+        align-items: center;
+        display: flex;
+        margin: 0 0 0 0;
+        justify-content: flex-end;
+    }
+    #main-menu > ul > li > a {
+        padding: .8rem;
+        text-transform: capitalize;
+        margin: 0 .3rem;
+        border-top: 0px;
+        transition: all .5s ease;
+    }
+    #main-menu > ul > li > a:hover {
+        border-bottom: 4px solid $accent;
+    }
+    .menu-button {
+        display: none;
+    }
+}
+
+@media(max-width: 768px){
+    #main-menu{
+        height: auto !important;
+    }
+}
