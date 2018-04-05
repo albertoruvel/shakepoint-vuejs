@@ -1,20 +1,26 @@
-import injector from 'vue-inject'
-export default class AuthenticationService {
-  // HttpService implementation here...
-  isLoggedIn () {
-    console.log('Will check if logged in from here')
-    if (localStorage.getItem('accessToken') !== '') {
-      return true
-    }
-    return false
+var accessToken = 'accessToken'
+var securityRole = 'securityRole'
+// HttpService implementation here...
+export function isLoggedIn () {
+  let accessTokenValue = localStorage.getItem(accessToken)
+  if (accessTokenValue !== '') {
+    return true
   }
-
-  saveToken (token) {
-    localStorage.setItem('accessToken', token)
-  }
-
-  getToken () {
-    return localStorage.getItem('accessToken')
-  }
+  return false
 }
-injector.service('authService', AuthenticationService)
+
+export function saveToken (token) {
+  localStorage.setItem(accessToken, token)
+}
+
+export function getToken () {
+  return localStorage.getItem(accessToken)
+}
+
+export function saveUserRole (role) {
+  localStorage.setItem(securityRole, role)
+}
+
+export function getUserRole () {
+  return localStorage.getItem(securityRole)
+}

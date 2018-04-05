@@ -33,7 +33,8 @@
 <script>
 import router from '../router'
 import NavBar from './shared/NavBar'
-import {authService, httpService} from '@/services/ServiceContainer'
+import {httpService} from '@/services/ServiceContainer'
+import { getToken, saveToken } from '@/services/AuthenticationService'
 
 export default {
   name: 'SignIn',
@@ -53,15 +54,22 @@ export default {
   },
   methods: {
     signIn: function () {
-      httpService.post(authService.getToken(), 'security/signIn', {
+      httpService.post(getToken(), 'security/signIn', {
         email: this.emailAddress,
         password: this.password
       }).then(response => {
         if (response.data.success) {
           // save token
-          console.log(this.authService)
-          this.authService.saveToken(response.data.authenticationToken)
-          router.push('/admin')
+          if (response.data.role === 'MEMBER') {
+            // get out of here!! Members are only allowed on mobile app
+            router.push('/unauthorized')
+          } else if (response.data.role === 'ADMIN') {
+            saveToken(response.data.authenticationToken)
+            router.push('/admin/')
+          } else if (response.data.role === 'PARTNER') {
+            saveToken(response.data.authenticationToken)
+            router.push('/partner/')
+          }
         } else {
           this.invalidCredentialsError = true
         }

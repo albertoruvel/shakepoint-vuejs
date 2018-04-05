@@ -1,12 +1,9 @@
 import {getAddress} from '@/services/constants'
 import axios from 'axios'
 
-class HttpService {
-  constructor () {
-    console.log('creating httpService')
-  }
+export default class HttpService {
   post (token, path, body) {
-    console.log('Posting to some service' + path)
+    console.log('Posting to ' + path)
     let address = getAddress(path)
     return axios.post(address, body)
   }

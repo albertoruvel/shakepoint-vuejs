@@ -1,7 +1,5 @@
-import AuthenticationService from '@/services/AuthenticationService'
 import HttpService from '@/services/HttpService'
-
-let authService = new AuthenticationService()
+import {isLoggedIn} from '@/services/AuthenticationService'
 let httpService = new HttpService()
 
-export default { authService, httpService }
+export { httpService, isLoggedIn }
