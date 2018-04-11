@@ -1,26 +1,25 @@
-var accessToken = 'accessToken'
-var securityRole = 'securityRole'
 // HttpService implementation here...
-export function isLoggedIn () {
-  let accessTokenValue = localStorage.getItem(accessToken)
-  if (accessTokenValue !== '') {
-    return true
-  }
-  return false
+export function isLoggedIn() {
+    let session = JSON.parse(localStorage.getItem('session'))
+    if (session != null && session.authenticationToken !== '') {
+        return true
+    }
+    return false
 }
 
-export function saveToken (token) {
-  localStorage.setItem(accessToken, token)
+export function setSession(authentication) {
+    localStorage.setItem('session', JSON.stringify(authentication))
 }
 
-export function getToken () {
-  return localStorage.getItem(accessToken)
+export function removeSession() {
+    localStorage.remove('session')
 }
 
-export function saveUserRole (role) {
-  localStorage.setItem(securityRole, role)
+export function getToken() {
+    let session = JSON.parse(localStorage.getItem('session'))
+    return session.authenticationToken
 }
 
-export function getUserRole () {
-  return localStorage.getItem(securityRole)
+export function getUserRole() {
+    return JSON.parse(localStorage.getItem('session')).role
 }

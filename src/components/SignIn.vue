@@ -1,6 +1,6 @@
 <template>
     <section class="sign-in-section">
-        <NavBar></NavBar>
+        <NavBar securityRole="ANONYMOUS"></NavBar>
         <div>
             <div class="container">
                 <div class="row">
@@ -16,11 +16,11 @@
                         <form>
                             <div class="form-group">
                                 <label for="emailAddress">Correo electrónico</label>
-                                <input id="emailAddress" type="email" class="form-control" v-model="emailAddress">
+                                <input id="emailAddress" type="email" class="form-control" v-model="emailAddress" placeholder="Correo">
                             </div>
                             <div class="form-group">
                                 <label for="password">Contraseña</label>
-                                <input id="password" type="password" class="form-control" v-model="password">
+                                <input id="password" type="password" class="form-control" v-model="password" placeholder="Contraseña">
                             </div>
                             <button class="btn btn-primary btn-lg" v-on:click="signIn">Iniciar sesión</button>
                         </form>
@@ -34,7 +34,7 @@
 import router from '../router'
 import NavBar from './shared/NavBar'
 import {httpService} from '@/services/ServiceContainer'
-import { getToken, saveToken } from '@/services/AuthenticationService'
+import { setSession } from '@/services/AuthenticationService'
 
 export default {
   name: 'SignIn',
@@ -54,7 +54,7 @@ export default {
   },
   methods: {
     signIn: function () {
-      httpService.post(getToken(), 'security/signIn', {
+      httpService.post(null, 'security/signIn', {
         email: this.emailAddress,
         password: this.password
       }).then(response => {
@@ -64,10 +64,10 @@ export default {
             // get out of here!! Members are only allowed on mobile app
             router.push('/unauthorized')
           } else if (response.data.role === 'ADMIN') {
-            saveToken(response.data.authenticationToken)
-            router.push('/admin/')
+            setSession(response.data)
+            router.push('/admin/home')
           } else if (response.data.role === 'PARTNER') {
-            saveToken(response.data.authenticationToken)
+            setSession(response.data)
             router.push('/partner/')
           }
         } else {
@@ -83,9 +83,15 @@ export default {
 }
 </script>
 <style lang="scss">
+    .alert-heading{
+        font-size: 1rem;
+    }
+    .alert > p{
+        font-size: .8rem;
+    }
     .alert{
         width: 50%;
-        margin: 0rem auto;
+        margin: 0rem auto 1rem auto
     }
     .sign-in-container{
         width: 100%;
@@ -97,7 +103,6 @@ export default {
         flex-direction: column;
         width: 50%;
         margin: 0 auto;
-        margin-top: 2rem;
     }
     @media(max-width: 962px){
         form{
@@ -106,7 +111,7 @@ export default {
         }
         .alert{
             width: 90%;
-            margin: 0 auto;
+            margin: 0rem auto 1rem auto
         }
     }
 </style>

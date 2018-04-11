@@ -1,7 +1,7 @@
 <template>
     <div>
         <section id="welcome-banner-section" class="welcome-banner-section">
-            <NavBar></NavBar>
+            <NavBar securityRole="ANONYMOUS"></NavBar>
         <div class="header-text">
             <div class="container main-message-container text-center">
                 <div class="row">
@@ -19,7 +19,7 @@
             </div>
         </div>
         <div class="down-arrow">
-            <a>
+            <a href="#vending-machine-info-section">
                 <i class="arrow-icon fa fa-angle-down"></i>
             </a>
         </div>

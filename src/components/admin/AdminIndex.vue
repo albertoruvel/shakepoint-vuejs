@@ -1,5 +1,7 @@
 <template>
-  <label>Admin content should be here...</label>
+  <section class="admin-index-section">
+      <label>Index</label>
+  </section>
 </template>
 <script>
 export default {
