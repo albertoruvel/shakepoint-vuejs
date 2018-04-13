@@ -9,7 +9,6 @@
                 <th scope="col" class="hide-md">Imagen</th>
                 <th scope="col">Nombre</th>
                 <th scope="col">Precio</th>
-                <th scope="col">Información</th>
             </tr>
         </thead>
         <tbody>
@@ -17,7 +16,6 @@
                 <td class="hide-md"><div><img v-bind:src="product.logoUrl" width="100" height="100"></div></td>
                 <td><div><p>{{product.name}}</p></div></td>
                 <td><div><p>${{product.price}} MXN</p></div></td>
-                <td><router-link :to="{path: 'product', query: {productId: product.id}}">Más</router-link></td>
             </tr>
         </tbody>
     </table>
@@ -43,7 +41,6 @@ export default {
     httpService.get(getToken(), 'admin/getProducts')
       .then(response => {
         for (var i = 0; i < response.data.length; i ++) {
-            console.log(response.data[i])
           this.products.push(response.data[i])
         }
       }).catch(err => {

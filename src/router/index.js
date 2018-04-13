@@ -7,6 +7,7 @@ import Admin from '@/components/admin/Admin'
 import AdminIndex from '@/components/admin/AdminIndex'
 import AdminProducts from '@/components/admin/AdminProducts'
 import AdminVendings from '@/components/admin/AdminVendings'
+import ViewVending from '@/components/admin/ViewVending'
 import AdminUsers from '@/components/admin/AdminUsers'
 import NewProduct from '@/components/admin/NewProduct'
 import NewVending from '@/components/admin/NewVending'
@@ -21,20 +22,20 @@ Vue.use(Router)
 export default new Router({
     routes: [
         {
-            path: '/',
-            component: Welcome,
-            beforeEnter: (to, from, next) => {
-                next()
-            }
-    },
+          path: '/',
+          component: Welcome,
+          beforeEnter: (to, from, next) => {
+              next()
+          }
+        },
         {
-            path: '/signin',
-            component: SignIn
-    },
+          path: '/signin',
+          component: SignIn
+        },
         {
-            path: '/unauthorized',
-            component: Unauthorized
-    },
+          path: '/unauthorized',
+          component: Unauthorized
+        },
         {
             path: '/admin',
             beforeEnter: (to, from, next) => {
@@ -49,33 +50,37 @@ export default new Router({
             },
             component: Admin,
             children: [
-                {
-                    path: 'home',
-                    component: AdminIndex
+        {
+          path: 'home',
+          component: AdminIndex
         },
-                {
-                    path: 'products',
-                    component: AdminProducts
+        {
+          path: 'products',
+          component: AdminProducts
         },
-                {
-                    path: 'vendings',
-                    component: AdminVendings
+        {
+          path: 'vendings',
+          component: AdminVendings
         },
-                {
-                    path: 'partners',
-                    component: AdminUsers
+        {
+          path: 'partners',
+          component: AdminUsers
         },
-                {
-                    path: 'createProduct',
-                    component: NewProduct
+        {
+          path: 'createProduct',
+          component: NewProduct
         },
-                {
-                    path: 'createVending',
-                    component: NewVending
+        {
+          path: 'createVending',
+          component: NewVending
         },
-                {
-                    path: 'createPartner',
-                    component: NewPartner
+        {
+          path: 'createPartner',
+          component: NewPartner
+        },
+        {
+          path: 'vending',
+          component: ViewVending
         }
       ]
     }

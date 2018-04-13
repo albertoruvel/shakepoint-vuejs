@@ -5,16 +5,20 @@
         <table class="table table-hover table-striped" v-if="vendings.length > 0">
             <thead>
                 <tr>
+                    <th class="d-none d-md-block d-lg-block" scope="col">ID</th>
                     <th scope="col">Nombre</th>
                     <th scope="col">Socio</th>
-                    <th scope="col">Puerto de conexión</th>
+                    <th scope="col">Puerto</th>
+                    <th scope="col">Ver</th>
                 </tr>
             </thead>
             <tbody>
                 <tr v-for="vending in vendings">
+                    <td class="d-none d-md-block d-lg-block">{{vending.id}}</td>
                     <td>{{vending.name}}</td>
                     <td>{{vending.partnerName}}</td>
                     <td>{{vending.workingPort}}</td>
+                    <td><router-link :to="{ path: '/admin/vending', query: {id: vending.id} }">Productos</router-link></td>
                 </tr>
             </tbody>
         </table>
@@ -47,7 +51,7 @@ export default {
   }
 }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
     .admin-vending-section{
         padding: 1rem;
         width: 100%;
@@ -57,10 +61,15 @@ export default {
         align-items: center;
     }
     table{
-        width: 50% !important;
+        width: 60% !important;
         margin: 0 auto;
     }
     .shakepoint-title{
         color: #F47621;
+    }
+    @media(max-width: 792px){
+      table{
+        width: 90% !important;
+      }
     }
 </style>

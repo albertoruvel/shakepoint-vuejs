@@ -79,7 +79,13 @@ export default {
         color: $accent;
     }
     table{
-        width: 70%;
+        width: 60%;
         margin: 0 auto;
+    }
+
+    @media(max-width: 792px){
+      table{
+        width: 90% !important;
+      }
     }
 </style>
