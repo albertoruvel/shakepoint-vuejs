@@ -5,7 +5,10 @@
 </template>
 <script>
 export default {
-  name: 'AdminIndex'
+  name: 'AdminIndex', 
+    mounted: function(){
+        window.document.title = "Shakepoint | Inicio"
+    }
 }
 </script>
 <style lang="scss"></style>

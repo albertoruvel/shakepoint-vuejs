@@ -1,0 +1,68 @@
+$primary: #000;
+$accent: #F47621;
+a {
+    color: $accent;
+    text-decoration: none;
+}
+a:hover {
+    color: black;
+}
+.btn-primary {
+    color: white;
+    background-color: $accent !important;
+    border-color: transparent !important;
+}
+.btn-primary:hover {
+    border-color: transparent !important;
+    background-color: $accent !important;
+}
+.btn-primary:focus:active {
+    box-shadow: 0 0 0 0.2rem $accent !important;
+    border-color: transparent !important;
+    background-color: $accent !important;
+}
+.btn-primary:focus {
+    box-shadow: 0 0 0 0.2rem $accent !important;
+    border-color: transparent !important;
+    background-color: $accent !important;
+}
+.btn-primary:active {
+    box-shadow: 0 0 0 0.2rem $accent !important;
+    border-color: transparent !important;
+    background-color: $accent !important;
+}
+.btn-primary:active:hover {
+    box-shadow: 0 0 0 0.2rem $accent !important;
+    border-color: transparent !important;
+    background-color: $accent !important;
+}
+.btn-info:hover,
+.btn-info:focus,
+.btn-info:active,
+.btn-info:active:hover {
+    box-shadow: 0 0 0 0.2rem transparent;
+    color: $accent;
+    border-color: transparent !important;
+    background-color: white !important;
+}
+.btn-info {
+    color: $accent;
+    background-color: white !important;
+    border-color: transparent;
+}
+.collapse.in {
+    display: block;
+}
+
+
+.logo {
+    width: 130px;
+    height: 60px;
+}
+
+
+.form-control:focus {
+    border-color: $accent !important;
+    box-shadow: 0 0 0 0.2rem $accent !important;
+}
+

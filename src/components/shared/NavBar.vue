@@ -132,7 +132,8 @@ $accent: #F47621;
         transition: all .5s ease;
     }
     #main-menu > ul > li > a:hover {
-        border-bottom: 4px solid $accent;
+      color: $accent;
+        //border-bottom: 4px solid $accent;
     }
     .menu-button {
         display: none;

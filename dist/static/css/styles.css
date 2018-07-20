@@ -1,0 +1,62 @@
+a {
+  color: #F47621;
+  text-decoration: none; }
+
+a:hover {
+  color: black; }
+
+.btn-primary {
+  color: white;
+  background-color: #F47621 !important;
+  border-color: transparent !important; }
+
+.btn-primary:hover {
+  border-color: transparent !important;
+  background-color: #F47621 !important; }
+
+.btn-primary:focus:active {
+  box-shadow: 0 0 0 0.2rem #F47621 !important;
+  border-color: transparent !important;
+  background-color: #F47621 !important; }
+
+.btn-primary:focus {
+  box-shadow: 0 0 0 0.2rem #F47621 !important;
+  border-color: transparent !important;
+  background-color: #F47621 !important; }
+
+.btn-primary:active {
+  box-shadow: 0 0 0 0.2rem #F47621 !important;
+  border-color: transparent !important;
+  background-color: #F47621 !important; }
+
+.btn-primary:active:hover {
+  box-shadow: 0 0 0 0.2rem #F47621 !important;
+  border-color: transparent !important;
+  background-color: #F47621 !important; }
+
+.btn-info:hover,
+.btn-info:focus,
+.btn-info:active,
+.btn-info:active:hover {
+  box-shadow: 0 0 0 0.2rem transparent;
+  color: #F47621;
+  border-color: transparent !important;
+  background-color: white !important; }
+
+.btn-info {
+  color: #F47621;
+  background-color: white !important;
+  border-color: transparent; }
+
+.collapse.in {
+  display: block; }
+
+.logo {
+  width: 130px;
+  height: 60px; }
+
+.form-control:focus {
+  border-color: #F47621 !important;
+  box-shadow: 0 0 0 0.2rem #F47621 !important; }
+
+/*# sourceMappingURL=styles.css.map */
