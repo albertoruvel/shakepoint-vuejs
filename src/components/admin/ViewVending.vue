@@ -58,10 +58,32 @@ export default{
   name: 'ViewVending',
   methods: {
     addProduct(product){
-
+        if (product.slot == 0) {
+            alert('El slot del producto debe de ser diferente de 0')
+            return
+        }
+        httpService.post(getToken(), 'admin/addVendingProduct?machineId=' + this.vendingId + "&productId=" + product.id + "&slotNumber=" + product.slot, null)
+        .then(response => {
+            console.log(response)
+            product.vendingProductId = response.vendingProductId
+            this.vending.products.push(product)
+        }).catch(err => {
+        
+        })
     },
     removeProduct(product){
-
+        var r = confirm('Seguro que deseas eliminar el producto de la vending?')
+        if (r == true) {
+            httpService.post(getToken(), 'admin/deleteVendingProduct?vendingProductId=' + product.id, null)
+            .then(response => {
+                alert('Se ha eliminado el producto de la vending')
+                //delete product from list 
+                var index = this.vending.products.indexOf(product)
+                this.vending.products.splice(index, 1)
+            }).catch(err => {
+                console.log(err)
+            })
+        }
     }
   },
   mounted: function(){
@@ -93,7 +115,8 @@ export default{
       vending: {
         name: ''
       },
-      products: []
+      products: [], 
+      vendingProducts: []
     }
   }
 }

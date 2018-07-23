@@ -42,7 +42,7 @@ form {
 <template>
 
 <section class="sign-in-section">
-    <NavBar securityRole="ANONYMOUS"></NavBar>
+    <NavBar securityRole="ANONYMOUS" indexPath="/"></NavBar>
     <div>
         <div class="container">
             <div class="row">

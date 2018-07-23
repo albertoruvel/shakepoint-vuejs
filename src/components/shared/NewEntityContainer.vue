@@ -1,7 +1,7 @@
 <template>
     <div class="new-entity-container">
             <p>{{message}}</p>
-            <router-link :to="buttonPath" class="btn btn-primary btn-lg mb-3">{{buttonMessage}}</router-link>
+            <router-link :to="buttonPath" class="btn btn-primary btn-md mb-3">{{buttonMessage}}</router-link>
         </div>
 </template>
 <script>

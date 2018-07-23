@@ -12,6 +12,7 @@ import AdminUsers from '@/components/admin/AdminUsers'
 import NewProduct from '@/components/admin/NewProduct'
 import NewVending from '@/components/admin/NewVending'
 import NewPartner from '@/components/admin/NewPartner'
+import PromoCodesIndex from '@/components/admin/PromosIndex'
 import {
     isLoggedIn, getUserRole, removeSession
 }
@@ -81,6 +82,10 @@ export default new Router({
         {
           path: 'vending',
           component: ViewVending
+        },
+        {
+          path: 'promos', 
+          component: PromoCodesIndex
         }
       ]
     }

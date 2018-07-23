@@ -1,6 +1,6 @@
 <template>
   <section class="admin-main-section">
-      <NavBar securityRole="ADMIN" activeTab="NONE"></NavBar>
+      <NavBar securityRole="ADMIN" activeTab="NONE" indexPath="/admin/"></NavBar>
       <router-view/>
   </section>
 </template>

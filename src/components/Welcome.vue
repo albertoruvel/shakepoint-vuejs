@@ -1,7 +1,7 @@
 <template>
     <div>
         <section id="welcome-banner-section" class="welcome-banner-section">
-            <NavBar securityRole="ANONYMOUS"></NavBar>
+            <NavBar securityRole="ANONYMOUS" indexPath="/"></NavBar>
         <div class="header-text">
             <div class="container main-message-container text-center">
                 <div class="row">
@@ -13,7 +13,6 @@
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 main-message-column mb-3">
                     <h5 class="main-message-title my-3">Ya cuentas con una vending?</h5>
                     <router-link to="/signin" class="btn btn-primary btn-lg sign-in-button">Iniciar sesión</router-link>
-                    <!--<a href="signin" class="btn btn-primary btn-lg sign-in-button">Iniciar sesión</a>-->
                 </div>
                 </div>
             </div>

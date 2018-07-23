@@ -2,7 +2,7 @@
     <header class="navbar-fixed-top header" role="banner">
             <div class="container header-container">
                 <div class="header-main-container">
-                    <router-link to="/">
+                    <router-link :to="indexPath">
                         <img src="../../assets/img/black_logo.svg" class="logo" width="150" height="40" alt="">
                     </router-link>
                     <button v-if="securityRole !== 'ANONYMOUS'" type="button" class="menu-button" data-toggle="collapse" data-target="#main-menu" aria-expanded="false">
@@ -11,6 +11,9 @@
 
                 <nav v-if="securityRole !== 'ANONYMOUS'" class="collapse" id="main-menu">
                     <ul v-if="securityRole == 'ADMIN'">
+                        <li>
+                            <router-link to="/admin/promos" v-bind:class="{active: productsActive}">Promociones</router-link>
+                        </li>
                       <li>
                             <router-link to="/admin/products" v-bind:class="{active: productsActive}">Productos</router-link>
                         </li>
@@ -21,7 +24,7 @@
                             <router-link to="/admin/vendings" v-bind:class="{active: vendingsActive}">Vendings</router-link>
                         </li>
                         <li>
-                            <router-link to="">Salir</router-link>
+                            <button v-on:click="signOut" class="signOutButton">Salir</button>
                         </li>
                     </ul>
                 </nav>
@@ -29,9 +32,10 @@
         </header>
 </template>
 <script>
+import {removeSession} from '@/services/ServiceContainer'
 export default {
   name: 'NavBar',
-  props: ['securityRole', 'activeTab'],
+  props: ['securityRole', 'activeTab', 'indexPath'],
   data: function(){
       return {
           productsActive: false,
@@ -47,12 +51,29 @@ export default {
       } else if (this.activeTab === 'USERS'){
           this.usersActive = true
       }
+  }, 
+  methods: {
+      signOut: function(){
+          removeSession()
+          //this.$router.go('/')
+      }
   }
 }
 </script>
 <style lang="scss" scoped>
 $primary: #000;
 $accent: #F47621;
+    .signOutButton{
+        background-color: black; 
+        color: white;
+        border-color: black;
+        display: block; 
+        width: 100%;
+        text-transform: uppercase;
+    }
+    .signOutButton:hover{
+        color: $accent;
+    }
     .active{
         color: $accent;
         border-bottom: 1px solid $accent;
@@ -126,10 +147,10 @@ $accent: #F47621;
     }
     #main-menu > ul > li > a {
         padding: .8rem;
-        text-transform: capitalize;
         margin: 0 .3rem;
         border-top: 0px;
         transition: all .5s ease;
+        text-transform: uppercase;
     }
     #main-menu > ul > li > a:hover {
       color: $accent;

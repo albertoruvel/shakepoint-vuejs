@@ -1,9 +1,9 @@
 <template>
-  <div class="admin-products-section">
+  <div class="admin-products-section center">
     <h3 class="mb-4 text-center">Productos disponibles en <em class="shakepoint-titile">Shakepoint</em></h3>
     <NewEntityContainer message="Necesitas crear un producto?" buttonMessage="Crear producto" buttonPath="createProduct"></NewEntityContainer>
 
-    <table class="table mb-4 table-hover table-striped" v-if="products.length > 0">
+    <table class="table mb-4 table-hover table-striped text-center" v-if="products.length > 0">
         <thead class="">
             <tr>
                 <th scope="col" class="hide-md">Imagen</th>
@@ -13,7 +13,7 @@
         </thead>
         <tbody>
             <tr v-for="product in products">
-                <td class="hide-md"><div><img v-bind:src="product.logoUrl" width="100" height="100"></div></td>
+                <td class="hide-md"><div><img v-bind:src="product.logoUrl" width="70" height="70"></div></td>
                 <td><div><p>{{product.name}}</p></div></td>
                 <td><div><p>${{product.price}} MXN</p></div></td>
             </tr>
@@ -50,9 +50,14 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+    .center {
+        margin: 0 auto;
+        width: 100%;
+        
+    }
     .admin-products-section {
         padding: 1rem;
-        width: 100%;
+        width: 70%;
         display: flex;
         flex-direction: column;
         justify-content: center;

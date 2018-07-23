@@ -12,7 +12,7 @@ export function setSession(authentication) {
 }
 
 export function removeSession() {
-    localStorage.remove('session')
+    localStorage.clear()
 }
 
 export function getToken() {
