@@ -2,9 +2,9 @@
     <section class="admin-promos-section center">
       <div class="row">
         <div class="container">
-            <ul class="nav nav-tabs" role="tablist">
-                <li class="active" role="presentation"><a href="#newPromo" role="tab" data-toggle="tab">Crear promoción</a></li>
-                <li class="active" role="presentation"><a href="#promos" role="tab" data-toggle="tab">Promociones</a></li>
+            <ul class="nav nav-tabs center" role="tablist">
+                <li class="active" role="presentation"><a href="#newPromo" role="tab" data-toggle="tab">Promoción general</a></li>
+                <li class="active" role="presentation"><a href="#promos" role="tab" data-toggle="tab">Promoción entrenador</a></li>
             </ul>
             
             <div class="tab-content">
@@ -35,7 +35,7 @@
 <style>
     .admin-promos-section {
         padding: 1rem;
-        width: 70%;
+        width: 100%;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -44,8 +44,10 @@
 
     .center {
         margin: 0 auto;
-        width: 100%;
 
+    }
+    .nav-tabs{
+        width: 70%;
     }
     .nav-tabs > li{
         margin: 1rem;
