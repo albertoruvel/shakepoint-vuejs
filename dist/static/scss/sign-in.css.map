@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAAA,IAAI;EACH,KAAK,EAAE,GAAG;EACV,MAAM,EAAE,MAAM;;AAEf,sBAAsB;EACrB,OAAO,EAAE,IAAI;;AAEd,aAAa;EACZ,KAAK,EAAE,IAAI;;AAGZ,yBAAwB;EACvB,IAAK;IACJ,KAAK,EAAE,GAAG;IACV,MAAM,EAAE,MAAM",
-"sources": ["sign-in.scss"],
-"names": [],
-"file": "sign-in.css"
-}
