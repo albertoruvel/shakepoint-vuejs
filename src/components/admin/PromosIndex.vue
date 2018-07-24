@@ -3,15 +3,17 @@
       <div class="row">
         <div class="container">
             <ul class="nav nav-tabs center" role="tablist">
-                <li class="active" role="presentation"><a href="#newPromo" role="tab" data-toggle="tab">Promoción general</a></li>
-                <li class="active" role="presentation"><a href="#promos" role="tab" data-toggle="tab">Promoción entrenador</a></li>
+                <li class="active" role="presentation"><a href="#activePromos" role="tab" data-toggle="tab">Promociones activas</a></li>
+                <li class="" role="presentation"><a href="#newPromo" role="tab" data-toggle="tab">Crear promoción</a></li>
             </ul>
             
             <div class="tab-content">
-                <div class="tab-pane active" role="tabpanel" id="newPromo">
+                <div class="tab-pane active" role="tabpanel" id="activePromos">
+                    <ActivePromos></ActivePromos>
+                </div>
+                <div class="tab-pane" role="tabpanel" id="newPromo">
                     <NewPromoCode></NewPromoCode>
                 </div>
-                <div class="tab-pane" role="tabpanel" id="promos">Promos</div>
             </div>
         </div>
       </div>
@@ -20,13 +22,17 @@
 
 <script>
     import NewPromoCode from '@/components/admin/NewPromoCode'
+    import ActivePromos from '@/components/admin/ActivePromos'
+    import NewTrainerPromo from '@/components/admin/NewTrainerPromo'
     export default {
         name: 'PromoCodesIndex',
         data() {
             return {}
         },
         components: {
-            NewPromoCode
+            NewPromoCode,
+            ActivePromos,
+            NewTrainerPromo
         }
     }
 
@@ -46,17 +52,45 @@
         margin: 0 auto;
 
     }
-    .nav-tabs{
-        width: 70%;
+
+    .nav-tabs {
+        width: 80%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
     }
-    .nav-tabs > li{
+
+    .nav-tabs>li {
         margin: 1rem;
     }
-    .tab-pane{
+
+    .tab-pane {
         padding: 1rem;
     }
-    .row{
+
+    .row {
         width: 100%;
+    }
+
+    @media(max-width: 990px) {
+        .nav-tabs {
+            width: 90%;
+        }
+    }
+
+    @media(max-width: 770px) {
+        .nav-tabs {
+            width: 100%;
+        }
+    }
+
+    @media(max-width: 430px) {
+        .nav-tabs {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
     }
 
 </style>
