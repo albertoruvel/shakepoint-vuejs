@@ -13,8 +13,14 @@ import NewProduct from '@/components/admin/NewProduct'
 import NewVending from '@/components/admin/NewVending'
 import NewPartner from '@/components/admin/NewPartner'
 import PromoCodesIndex from '@/components/admin/PromosIndex'
+import Partner from '@/components/partner/Partner'
+import PartnerIndex from '@/components/partner/PartnerIndex'
+import Trainers from '@/components/partner/Trainers'
+import CreateTrainer from '@/components/partner/CreateTrainer'
 import {
-    isLoggedIn, getUserRole, removeSession
+    isLoggedIn,
+    getUserRole,
+    removeSession
 }
 from '@/services/ServiceContainer'
 
@@ -23,19 +29,19 @@ Vue.use(Router)
 export default new Router({
     routes: [
         {
-          path: '/',
-          component: Welcome,
-          beforeEnter: (to, from, next) => {
-              next()
-          }
+            path: '/',
+            component: Welcome,
+            beforeEnter: (to, from, next) => {
+                next()
+            }
         },
         {
-          path: '/signin',
-          component: SignIn
+            path: '/signin',
+            component: SignIn
         },
         {
-          path: '/unauthorized',
-          component: Unauthorized
+            path: '/unauthorized',
+            component: Unauthorized
         },
         {
             path: '/admin',
@@ -51,43 +57,71 @@ export default new Router({
             },
             component: Admin,
             children: [
-        {
-          path: 'home',
-          component: AdminIndex
+                {
+                    path: 'home',
+                    component: AdminIndex
         },
-        {
-          path: 'products',
-          component: AdminProducts
+                {
+                    path: 'products',
+                    component: AdminProducts
         },
-        {
-          path: 'vendings',
-          component: AdminVendings
+                {
+                    path: 'vendings',
+                    component: AdminVendings
         },
-        {
-          path: 'partners',
-          component: AdminUsers
+                {
+                    path: 'partners',
+                    component: AdminUsers
         },
-        {
-          path: 'createProduct',
-          component: NewProduct
+                {
+                    path: 'createProduct',
+                    component: NewProduct
         },
-        {
-          path: 'createVending',
-          component: NewVending
+                {
+                    path: 'createVending',
+                    component: NewVending
         },
-        {
-          path: 'createPartner',
-          component: NewPartner
+                {
+                    path: 'createPartner',
+                    component: NewPartner
         },
-        {
-          path: 'vending',
-          component: ViewVending
+                {
+                    path: 'vending',
+                    component: ViewVending
         },
-        {
-          path: 'promos', 
-          component: PromoCodesIndex
+                {
+                    path: 'promos',
+                    component: PromoCodesIndex
         }
       ]
+    },
+        {
+            path: '/partner',
+            beforeEnter: (to, from, next) => {
+                if (isLoggedIn()) {
+                    let role = getUserRole()
+                    if (role !== 'PARTNER') {
+                        window.location.href = "/"
+                    } else {
+                        next()
+                    }
+                }
+            },
+            component: Partner,
+            children: [
+                {
+                    path: 'home',
+                    component: PartnerIndex
+        },
+                {
+                    path: 'trainers',
+                    component: Trainers
+        },
+                {
+                    path: 'createTrainer',
+                    component: CreateTrainer
+        }
+            ]
     }
   ]
 })

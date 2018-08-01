@@ -9,13 +9,19 @@
                     <option value="0">Selecciona el tipo de promoción</option>
                     <option value="1">Crear promoción para todos los productos</option>
                     <option value="2">Crear promoción para un solo producto</option>
-                    <option value="3">Crear promoción para entrenadores para todos los productos</option>
-                    <option value="4">Crear promoción para entrenadores para un producto</option>
+                    <option value="3">Crear promoción para un entrenador</option>
                     <option value="5">Crear promoción de temporada</option>
                     <option value="6">Crear promoción de temporada para un producto</option>
                 </select>
             </div>
-            <div class="form-group" v-if="promotionType == 2 || promotionType == 4 || promotionType == 6">
+            <div class="form-group" v-if="trainers.length > 0">
+                <label for="trainer">Entrenador</label>
+                <select class="form-control" id="trainer" v-model="trainerId">
+                    <option value="">Selecciona un entrenador para la promoción</option>
+                    <option :value="trainer.id" v-for="trainer in trainers">{{trainer.name}} - {{trainer.gym}}</option> 
+                </select>
+            </div>
+            <div class="form-group" v-if="promotionType == 2 || promotionType == 6">
                 <label for="product">Producto promocionado</label>
                 <select class="form-control" id="product" v-model="promoRequest.productId">
                     <option value="">Selecciona un producto a promocionar</option>
@@ -54,7 +60,8 @@
                     expirationDate: '',
                     discount: 0,
                     description: ''
-                }
+                },
+                trainers: []
             }
         },
         methods: {
@@ -99,6 +106,14 @@
                     }
                 }).catch(err => {
                     console.error('Could not get products', err)
+                })
+            httpService.get(getToken(), 'admin/getAllTrainers')
+                .then(response => {
+                    for (var i = 0; i < response.data.length; i++) {
+                        this.trainers.push(response.data[i])
+                    }
+                }).catch(err => {
+
                 })
         }
     }
